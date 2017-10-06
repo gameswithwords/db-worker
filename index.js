@@ -34,6 +34,7 @@ amqp
           // this queue is not marked as durable, as it is an rpc
           // if rabbitmq goes down, theres really nothing to replyTo
           let durable = false;
+          logger.info('asserting queue', rpc_queue, 'durable', durable);
           return ch
             .assertQueue(rpc_queue, { durable })
             .then(() => {
