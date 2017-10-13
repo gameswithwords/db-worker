@@ -196,7 +196,16 @@ function Worker() {
    * @fulfill {Object[]} -   questions for that Trial
    * @reject {Error}
    */
-      this[`${quiz}.getInitialStimulus`] = () => {
+
+
+   // this refers to Model in this case;
+   //this[`${quiz}.getInitialStimulus`] is the same as this.`${quiz}.getInitialStimulus`
+   //qb => is the same as (qb) => and it's just an arrow function 
+   //The next two functions return a number of things from the database; the number of things is determined by the offset (starting point) and limit (ending point), which are just rows in the database; We get just the user ID and the stimulus itself (timestamps are ignored);
+   //fetchAll() gets as many rows as specified with the offset/limit
+   // oout of the data we fetch, we create JSON and stimulus and user are assigned to stimulus and user
+   //we have a catch for errors./
+         this[`${quiz}.getInitialStimulus`] = () => {
         return db
           .model('Stimulus')
           .forge()
