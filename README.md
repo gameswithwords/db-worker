@@ -7,7 +7,7 @@ This DB worker has a simple job with a relatively open API.
 There is a worker class that handles writes and reads through a message queue.
 All models are defined in `./models/`
 any bookshelf model that is defined in there will automatically get methods added to the worker class.
-add custom methods in `worker.js` to do custom functionality
+You can add custom methods in `worker.js` for custom functionality
 
 # Core Features
 * regulates and controls DB access in a structured manner
